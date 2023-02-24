@@ -33,7 +33,7 @@ function render() {
             });
 
             if (pricePosition === -1) {
-                //const price = { from:from, to:to };
+                
                 const price = { from, to };
                 pricesFilter.push(price);
             } else {
@@ -51,14 +51,14 @@ function render() {
         checkbox.addEventListener('change', event => {
             const colorName = checkbox.name;
 
-            //Checking the position or "index" of brandName in brandFilter (0 -> whatever OR if it's not included in the array it will give us -1)
+            //Checking the position or "index" of colorName in colorFilter (0 -> whatever OR if it's not included in the array it will give us -1)
             const colorPosition = colorFilter.indexOf(colorName);
-            //Do some checkings on brandposition (-1 means not in the array, anything else is the position in the array)
+            //Do some checkings on colorposition (-1 means not in the array, anything else is the position in the array)
             if (colorPosition === -1) {
-                //brand is not in the array, we must add it
+                //color is not in the array, we must add it
                 colorFilter.push(colorName);
             } else {
-                //brand is in the array, we must remove it
+                //color is in the array, we must remove it
                 colorFilter.splice(colorPosition, 1);
             }
 
@@ -70,22 +70,11 @@ function render() {
     document.querySelectorAll('.cat-filter').forEach(checkbox => {
         checkbox.addEventListener('change', event => {
             const catName = checkbox.name;
-
-            //Checking the position or "index" of brandName in brandFilter (0 -> whatever OR if it's not included in the array it will give us -1)
             const catPosition = catFilter.indexOf(catName);
-
-            // Same thing as above ^^
-            // But this thing can be used for looking for anything else than strings or numbers
-            // const brandPosition = brandFilter.findIndex(brand => {
-            //     return brandName === brand;
-            // });
-
-            //Do some checkings on brandposition (-1 means not in the array, anything else is the position in the array)
+            
             if (catPosition === -1) {
-                //brand is not in the array, we must add it
                 catFilter.push(catName);
             } else {
-                //brand is in the array, we must remove it
                 catFilter.splice(catPosition, 1);
             }
 
@@ -96,22 +85,11 @@ function render() {
     document.querySelectorAll('.brands-filter').forEach(checkbox => {
         checkbox.addEventListener('change', event => {
             const brandName = checkbox.name;
-
-            //Checking the position or "index" of brandName in brandFilter (0 -> whatever OR if it's not included in the array it will give us -1)
             const brandPosition = brandFilter.indexOf(brandName);
 
-            // Same thing as above ^^
-            // But this thing can be used for looking for anything else than strings or numbers
-            // const brandPosition = brandFilter.findIndex(brand => {
-            //     return brandName === brand;
-            // });
-
-            //Do some checkings on brandposition (-1 means not in the array, anything else is the position in the array)
             if (brandPosition === -1) {
-                //brand is not in the array, we must add it
                 brandFilter.push(brandName);
             } else {
-                //brand is in the array, we must remove it
                 brandFilter.splice(brandPosition, 1);
             }
 
@@ -132,23 +110,3 @@ function render() {
 
 render();
 
-
-/*
-class Person {
-
-    firstName;
-    lastName;
-
-    constructor(firstName, lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    getFullName() {
-        return this.firstName + " " + this.lastName;
-    }
-}
-
-const kenzo = new Person("Kenzo" , "De Witte")
-const fullName = kenzo.firstName;
-console.log(fullName);*/

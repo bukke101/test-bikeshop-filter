@@ -25,14 +25,10 @@ const filterByBrand = product => {
 }
 
 
-
 const filterByCategory = product => {
-    // Checking first if theres no filters by checking brand array length (no filters = 0 items in the array)
     if (catFilter.length === 0) {
-        //because we dont have any filters we return true (this will include the product in the results)
         return true;
     } else {
-        //we have a filter so we have to check if the product's brand is selected as filter (aka, check if it's included in the brand array)
         return catFilter.includes(product.category);
     }
 }
@@ -49,14 +45,9 @@ const filterByColor = product => {
 }
 
 const filterByPrice = product => {
-    // Checking first if theres no filters by checking brand array length (no filters = 0 items in the array)
     if (pricesFilter.length === 0) {
-        //because we dont have any filters we return true (this will include the product in the results)
-        return true;
     } else {
-        //we have a filter so we have to check if the product's brand is selected as filter (aka, check if it's included in the brand array)
         return pricesFilter.find(pf => { 
-
             return product.price >= pf.from && product.price <= pf.to;
          });
     }
