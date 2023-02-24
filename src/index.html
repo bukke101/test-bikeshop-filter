@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bikeshop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <span class="navbar-brand mb-0 h1">Bike Shop</span>
+            </div>
+          </nav>
+        <div class="row">
+            <div class="col-3">
+                <div class="left-sidebar">
+                    <h4>Categories</h4>
+                    <ul class="nav-btns" id="cats-container">
+                    </ul>
+                    <h4>Brands</h4>
+                    <ul class="nav-btns" id="brands-container">
+                    </ul>
+                    <h4>Colors</h4>
+                    <ul class="nav-btns" id="colors-container">
+                    </ul>
+                    <h4>Price</h4>
+                    <ul class="nav-btns" id="price-container">
+                    </ul>      
+                </div>
+            </div>
+
+            <div class="col-9">
+                <div id="product-container" class="row" style="margin-top:15px;"></div>
+            </div>
+
+        </div>
+       
+
+    </div>
+
+    <div class="modal fade" id="product-modal" tabindex="-1" aria-labelledby="product-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="product-modal-label">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="product-modal-body">
+              ...
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="./data.js"></script>
+    <script src="./filters.js"></script>
+    <script src="./render.js"></script>
+    <script src="./index.js"></script>
+
+</body>
+
+</html>
