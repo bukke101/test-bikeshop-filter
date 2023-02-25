@@ -1,14 +1,20 @@
 function renderColor(color) {
     let checked = null;
+    const cssColor = colorMap[color];
+    let border = '';
 
     if (colorFilter.includes(color)) {
         checked = 'checked="checked"'
+        border = 'border:2px solid blue';
     }
     return `
     <div class="form-check">
-       <input class="form-check-input color-filter" type="checkbox" value="" id="${color}" name="${color}" ${checked}>
-       <label class="form-check-label" for="${color}">
-        ${color}
+       <input style="display:none;" class="form-check-input color-filter"  type="checkbox" value="" id="${color}" name="${color}" ${checked}>
+       <label style="margin-left:-1.5em;" class="form-check-label" for="${color}">
+         <div style="display:flex; flex-direction: row; align-items:center">
+           <div title="${color}" style="width:15px; height:15px; background:${cssColor}; ${border}"></div>
+           <div style="margin-left:0.5em; margin-bottom:1px;">${color}</div>
+         </div>
        </label>
     </div>
     `;
@@ -65,9 +71,10 @@ function renderPrice(price) {
     const value = `${from}-${to}`
     return `
     <div class="form-check">
+   
        <input class="form-check-input price-filter" type="checkbox" value="" id="${value}" name="${value}" ${checked}>
        <label class="form-check-label" for="${value}">
-        ${value}
+       <div style="width:100px;">${value}</div>
        </label>
     </div>
     `;
@@ -82,9 +89,9 @@ function renderProduct(product) {
                          <img src="${image}" class="card-img-top" style="width: 100%; height: 125px; object-fit: cover;" alt="...">
                            <div class="card-body">
                              <h5 class="card-title">${brand} ${name}</h5>
-                             <p class="card-text">
+                             <div class="card-text">
                               ${category} - ${color} - $${price}
-                             </p>
+                             </div>
                             </div>
                        </div>
                     </div>`
@@ -92,8 +99,7 @@ function renderProduct(product) {
 }
 
 function renderProductModal (product) {
-    console.log(product);
-    const { brand, name, image, category, color, price } = product;
+    const { brand, name, image, category, color, price} = product;
     const productModalBody = `<div>
                                 <img src="${image}" width="100%">
                                 <div>
@@ -183,7 +189,8 @@ function renderAllColors() {
 }
 
 function renderAllProducts() {
-    return data.products
+
+    const products = data.products
         .filter(filterByBrand)
 
         .filter(filterByCategory)
@@ -195,5 +202,9 @@ function renderAllProducts() {
         .map(product => {
             return renderProduct(product);
         }).join('');
+
+        console.log(data,products);
+
+        return products;
 
 }
