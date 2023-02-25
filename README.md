@@ -1,2 +1,2 @@
 # test-bikeshop-filter
-Practice JS: map, filter, DOM & destructing 
+Practice JS: map, filter, DOM & destructuring 
